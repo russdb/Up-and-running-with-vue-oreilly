@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Vue Starter</title>
+</head>
+<body>
+  <section id = "app">
+    <p v-if="isMorning">Good Morning!</p>
+    <p v-if="isAfternoon">Good Morning!</p>
+    <p v-if="isEvening">Good Morning!</p>
+  </section>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    let hours = new Date().getHours();
+    console.info(hours);
+
+    new Vue({
+      el: '#app',
+      created() {
+        console.log('hello world')
+      },
+      data: {
+        isMorning: hours < 12,
+        isAfternoon: hours >= 12 && hours < 18,
+        isEvening: hours >= 18
+      }
+    });
+  </script>
+</body>
+</html>

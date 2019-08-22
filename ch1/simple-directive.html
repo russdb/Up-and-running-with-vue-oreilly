@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Vue Starter</title>
+</head>
+<body>
+  <section id = "app">
+    <h1>hello, {{ greetee }}</h1>
+  </section>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      created() {
+        console.log('hello world')
+      },
+      data: {
+        greetee: 'world'
+      }
+    })
+  </script>
+</body>
+</html>

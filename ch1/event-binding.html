@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Vue Starter</title>
+</head>
+<body>
+  <section id = "app">
+    <button v-on:click="counter++">Click to increase counter</button>
+    <p>you have clicked {{ counter }} times</p>
+    <button v-on:click="increase">Click to use the method</button>
+    <p>you have invoked the method function {{ counterDos }} times</p>
+    <button @click="increaseDos">Click to use the short hand method</button>
+    <p> you have used the short hand (@click) method {{ counterShortHand }} times</p>
+  </section>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      created() {
+        console.log('hello world')
+      },
+      data: {
+        counter: 0,
+        counterDos: 0,
+        counterShortHand: 0
+      },
+      methods: {
+        increase(e) {
+          this.counterDos++;
+        },
+        increaseDos(e) {
+          this.counterShortHand++;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Vue Starter</title>
+</head>
+<body>
+  <section id = "app">
+    <ul>
+      <li v-for="number in filterPositive(numbers)">{{ number }}</li>
+    </ul>
+
+    <p>the sum of the positives is {{ getPositiveNumbersSum() }}</p>
+  </section>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      created() {
+        console.log('hello world')
+      },
+      data: {
+        status: 2,
+        numbers: [-5,0,2,-1,-2,1,0.5]
+      },
+      methods: {
+        filterPositive(numbers) {
+          return this.numbers.filter((number) => number >=0 );
+        },
+        getPositiveNumbersSum() {
+          return this.filterPositive().reduce((sum, val) => sum + val);
+        }
+      }
+    })
+  </script>
+</body>
+</html>

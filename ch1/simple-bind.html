@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Vue Starter</title>
+</head>
+<body>
+  <section id = "app">
+    <button v-bind:type="buttonType">Test Button</button>
+  </section>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      created() {
+        console.log('hello world')
+      },
+      data: {
+        buttonType: 'submit' // renders on page as <button type="submit">Test Button</button>
+      }
+    })
+  </script>
+</body>
+</html>

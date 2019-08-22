@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Vue Starter</title>
+</head>
+<body>
+  <section id = "app">
+    <p>Current Status: {{ statusFromId(status) }}</p> 
+
+    <ul>
+      <li v-for="number in filterPositive(numbers)">{{ number }}</li>
+    </ul>
+  </section>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      created() {
+        console.log('hello world')
+      },
+      data: {
+        status: 2,
+        numbers: [-5,0,2,-1,-2,1,0.5]
+      },
+      methods: {
+        statusFromId(id) {
+          const status = ({
+            0: 'Asleep',
+            1: 'eating',
+            2: 'working',
+            3: 'reading'
+          })[id];
+
+          return status || 'relaxing: ' + id;
+        },
+        filterPositive(numbers) {
+          return numbers.filter((number) => number >=0 );
+        }
+      }
+    })
+  </script>
+</body>
+</html>
