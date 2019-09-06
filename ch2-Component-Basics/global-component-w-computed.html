@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Vue Component</title>
+</head>
+<body>
+  <section id = "app">
+    <positive-numbers></positive-numbers>
+  </section>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    Vue.component('positive-numbers', {
+      template: '<p>{{ positiveNumbers.length }} positive numbers</p>',
+      data() {
+        return { numbers: [-5, 0, 2, -1, 1, 0.5] };
+      },
+      computed: {
+        positiveNumbers() {
+          let result = this.numbers.filter((number) => number >=0)
+          console.log(result)
+          return result;
+        }
+      }
+    });
+    
+    new Vue({
+      el: '#app',
+      created() {
+        console.log('hello world')
+      }
+    });
+  </script>
+</body>
+</html>

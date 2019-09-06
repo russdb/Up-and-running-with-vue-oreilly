@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Vue template</title>
+</head>
+<style>
+  h1 {
+    height: 50px;
+  }
+  main {
+    height: 50px;
+  }
+  footer {
+    height: 50px;
+  }
+</style>
+<body>
+  <section id = "app">
+    <h1>Simple Routing</h1>
+    <p>this uses named routes with <code>:to="{ name= 'route-name-here' }"</code></p>
+    <router-link :to=" { name: 'home'}">Home</router-link>
+    <router-link :to=" { name: 'about'}">About Us</router-link>
+
+    <main>
+      <router-view />
+    </main>
+    <footer>all rights reserved</footer>
+  </section>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-router"></script>
+  <script>
+    const PageHome = {
+      template:'<p>This is the home page</p>'
+    };
+
+    const PageAbout = {
+      template:'<p>This is the about page</p>'
+    };
+
+    const PageNotFound = {
+      template: '<h2>sorry, not such page</h2>'
+    };
+
+    const router = new VueRouter({
+      routes: [
+        { 
+          path: '/',
+          name: 'home', 
+          component: PageHome 
+        },
+        { 
+          path: '/about',
+          name: 'about', 
+          component: PageAbout 
+        },
+        { 
+          path: '*', 
+          component: PageNotFound
+        }
+      ]
+    });
+
+    new Vue({
+      el: '#app',
+      created() {
+        console.log('hello world')
+      },
+      router,
+    })
+  </script>
+</body>
+</html>

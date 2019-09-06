@@ -8,27 +8,20 @@
 </head>
 <body>
   <section id = "app">
-    <p>product one: {{ productOneCost | formatCost('$') }}</p>
-    <p>product one: {{ productTwoCost | formatCost('$') }}</p>
-    <p>product one: {{ productThreeCost | formatCost('$') }}</p>
-
+    <custom-button></custom-button>
   </section>
   <script src="https://unpkg.com/vue"></script>
   <script>
+    const CustomButton = {
+      template: '<button>Custom Button</button>'
+    }
     new Vue({
       el: '#app',
       created() {
         console.log('hello world')
       },
-      data: {
-        productOneCost: 1002,
-        productTwoCost: 1350,
-        productThreeCost: 2020
-      },
-      filters: {
-        formatCost(value, symbol) {
-          return symbol + (value / 100).toFixed(2);
-        }
+      components: {
+        CustomButton
       }
     })
   </script>

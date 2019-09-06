@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Vue Data Passing</title>
+</head>
+<body>
+  <section id = "app">
+    <color-preview color="red"></color-preview>
+    <color-preview color="blue"></color-preview>
+
+  </section>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    Vue.component('color-preview',{
+      template: '<div class="color-preview" :style="style">hello</div>',
+      props: ['color'],
+      computed: {
+        style() {
+          return { backgroundColor: this.color };
+        }
+      }
+    });
+    
+    new Vue({
+      el: '#app',
+      created() {
+        console.log('hello world')
+      }
+    })
+  </script>
+</body>
+</html>
